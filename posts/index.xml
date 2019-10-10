@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Madpudding`s Blog</title>
-    <link>https://madpudding.github.io/post/</link>
+    <link>https://madpudding.github.io/posts/</link>
     <description>Recent content in Posts on Madpudding`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 10 Oct 2019 14:17:02 +0800</lastBuildDate>
     
-	<atom:link href="https://madpudding.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://madpudding.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About</title>
-      <link>https://madpudding.github.io/post/first/</link>
+      <link>https://madpudding.github.io/2019/first/</link>
       <pubDate>Thu, 10 Oct 2019 14:17:02 +0800</pubDate>
       
-      <guid>https://madpudding.github.io/post/first/</guid>
+      <guid>https://madpudding.github.io/2019/first/</guid>
       <description> first add file just for test ~~~~~~ </description>
     </item>
     
