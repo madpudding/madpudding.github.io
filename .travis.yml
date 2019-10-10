@@ -2,7 +2,7 @@
 dist: xenial
 install:
   - sudo snap install hugo
-  - git clone https://github.com/liuzc/LeaveIt.git
+  - git clone https://github.com/madpudding/LeaveIt.git theme/LeaveIt
 script:
   - echo 'Asia/Shanghai' | sudo tee /etc/timezone
   - hugo
