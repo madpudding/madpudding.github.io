@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Madpudding`s Blog</title>
@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Madpudding`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 11 Oct 2019 11:51:02 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 22 Oct 2019 16:26:02 +0800</lastBuildDate>
     
 	<atom:link href="https://madpudding.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>first time！</title>
+      <link>https://madpudding.github.io/2019/python_assignment/</link>
+      <pubDate>Tue, 22 Oct 2019 16:26:02 +0800</pubDate>
+      
+      <guid>https://madpudding.github.io/2019/python_assignment/</guid>
+      <description>背景：python 3.8正式版最近更新了，其中PEP572中的海象运算符获得正式python版本的支持.我看了官网的文档还有其它大神写的这个</description>
+    </item>
     
     <item>
       <title>docker删除镜像流程</title>

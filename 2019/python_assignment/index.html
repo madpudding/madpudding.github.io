@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Madpudding">
+  
+  
+  
+  <link rel="prev" href="https://madpudding.github.io/2019/docker-1/" />
+  
+  <link rel="canonical" href="https://madpudding.github.io/2019/python_assignment/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           first time！ | Madpudding`s Blog
+       
+  </title>
+  <meta name="title" content="first time！ | Madpudding`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/madpudding.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "first time！",
+    "headline" : "first time！",
+    "description" : "背景：python 3.8正式版最近更新了，其中PEP572中的海象运算符获得正式python版本的支持.我看了官网的文档还有其它大神写的这个",
+    "inLanguage" : "zh-cn",
+    "author" : "Madpudding",
+    "creator" : "Madpudding",
+    "publisher": "Madpudding",
+    "accountablePerson" : "Madpudding",
+    "copyrightHolder" : "Madpudding",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-10-22 16:26:02 \x2b0800 \x2b0800",
+    "dateModified" : "2019-10-22 16:26:02 \x2b0800 \x2b0800",
+    "url" : "https:\/\/madpudding.github.io\/2019\/python_assignment\/",
+    "wordCount" : "1271",
+    "keywords" : [  "Madpudding`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://madpudding.github.io">Madpudding`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://madpudding.github.io">Madpudding`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">first time！</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://madpudding.github.io" rel="author">Madpudding</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-10-22 itemprop="datePublished">October 22, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h3 id="背景-python-3-8正式版最近更新了-其中pep572中的海象运算符获得正式python版本的支持-我看了官网的文档还有其它大神写的这个东西-我感觉在将来的python语句中是非常实用的一个东西-所以写下这篇博客来介绍-介绍-同时也是自己学习新版特性-尽管我司生产环境还停留在-3-6-但并不影响我尝尝鲜">背景：python 3.8正式版最近更新了，其中PEP572中的海象运算符获得正式python版本的支持.我看了官网的文档还有其它大神写的这个东西，我感觉在将来的python语句中是非常实用的一个东西，所以写下这篇博客来介绍、介绍，同时也是自己学习新版特性，尽管我司生产环境还停留在 3.6，但并不影响我尝尝鲜.</h3>
+
+<h3 id="ps-这是3-8-新特性网址-https-docs-python-org-3-whatsnew-3-8-html">ps：这是3.8 新特性网址：<a href="https://docs.python.org/3/whatsnew/3.8.html" rel="nofollow noreferrer" target="_blank">https://docs.python.org/3/whatsnew/3.8.html</a></h3>
+
+<h4 id="官网介绍-assignment-expressions-赋值表达式">官网介绍：Assignment expressions（赋值表达式）</h4>
+
+<h5 id="there-is-new-syntax-that-assigns-values-to-variables-as-part-of-a-larger-expression-it-is-affectionately-known-as-the-walrus-operator-due-to-its-resemblance-to-the-eyes-and-tusks-of-a-walrus">There is new syntax := that assigns values to variables as part of a larger expression. It is affectionately known as “the walrus operator” due to its resemblance to the eyes and tusks of a walrus.</h5>
+
+<h5 id="中译过来就是-咱们这新开发了一种语法-它是一个强大的表达式-会把表达式的一部分赋值给变量-因为很像海象的眼睛和象牙-所以成为海象操纵者-听起来有点懵-可能是我的翻译水准不够把">中译过来就是：咱们这新开发了一种语法，它是一个强大的表达式，会把表达式的一部分赋值给变量，因为很像海象的眼睛和象牙，所以成为海象操纵者。听起来有点懵，可能是我的翻译水准不够把。</h5>
+
+<h4 id="描述之后呢-官网给了一些例子">描述之后呢，官网给了一些例子：</h4>
+
+<h4 id="1">1</h4>
+
+<pre><code>if (n := len(a)) &gt; 10:
+    print(f&quot;List is too long ({n} elements, expected &lt;= 10)&quot;)
+</code></pre>
+
+<h5 id="在这个例子里面-文档强调通过使用海象表达式-避免len-方法运行两次-从而提高了运行速度">在这个例子里面，文档强调通过使用海象表达式，避免len()方法运行两次，从而提高了运行速度.</h5>
+
+<h5 id="假如在没有海象运算符的时候-我们会怎么来写这段代码呢-来试一试">假如在没有海象运算符的时候，我们会怎么来写这段代码呢？来试一试：</h5>
+
+<pre><code>if len(a) &gt; 10:
+    print(f&quot;List is to long({len(a)} elements, expected &lt;= 10)&quot;)
+</code></pre>
+
+<h5 id="或者这样写-避免使用两次len方法-却又多了一次赋值给中间变量的步骤">或者这样写，避免使用两次len方法，却又多了一次赋值给中间变量的步骤.</h5>
+
+<pre><code>n = len(a)
+if n &gt; 10:
+    print(f&quot;List is to long({n} elements, expected &lt;= 10)&quot;)
+</code></pre>
+
+<h5 id="我觉得一个好处就在于这里-为我们省去了一个赋值中间变量的步骤">我觉得一个好处就在于这里，为我们省去了一个赋值中间变量的步骤.</h5>
+
+<h4 id="2">2</h4>
+
+<h5 id="接下来-文档又给出了第二个例子-关于海象运算符在正则中的应用">接下来，文档又给出了第二个例子，关于海象运算符在正则中的应用</h5>
+
+<pre><code>discount = 0.0
+if (mo := re.search(r'(\d+)% discount', advertisement)):
+    discount = float(mo.group(1)) / 100.0
+</code></pre>
+
+<h5 id="背景应该是这样的-代码想从一段advertisement的文本中-拿到打折的百分比-然后通过除法得到百分比数-在这里面-海象运算符干了些什么呢-我们来看哈-虽然正则匹配的语句只用了一次-但它却在两个-地方起了作用-一次是检测匹配是否发生-也就是if控制语句-还有一次是提取分子-同样用python3-8之前的语句来写这个语句">背景应该是这样的，代码想从一段advertisement的文本中，拿到打折的百分比，然后通过除法得到百分比数. 在这里面，海象运算符干了些什么呢？我们来看哈，虽然正则匹配的语句只用了一次，但它却在两个 地方起了作用，一次是检测匹配是否发生，也就是if控制语句，还有一次是提取分子.同样用python3.8之前的语句来写这个语句：</h5>
+
+<pre><code>discount = 0.0
+mo = re.search(r'(\d+)% discount', advertisement)
+if mo:
+    discount = float(mo.group(1)) / 100.0
+</code></pre>
+
+<h5 id="和上面的例子相似-海象运算符替我们省去了中间赋值的步骤-让代码更加整洁了">和上面的例子相似，海象运算符替我们省去了中间赋值的步骤，让代码更加整洁了.</h5>
+
+<h4 id="3">3</h4>
+
+<h5 id="接下来-文档又给了两个例子-首先是一个-while循环控制-还是省去了赋值的步骤">接下来，文档又给了两个例子，首先是一个 while循环控制，还是省去了赋值的步骤：</h5>
+
+<pre><code># Loop over fixed length blocks
+while (block := f.read(256)) != '':
+    process(block)
+</code></pre>
+
+<h5 id="背景-代码读取一个文件-当不为空执行操作-同样看没有海象运算符-我们会怎么写">背景：代码读取一个文件，当不为空执行操作,同样看没有海象运算符，我们会怎么写：</h5>
+
+<pre><code>while 1:
+    block = f.read(256)
+    if block != '':
+        process(block)
+</code></pre>
+
+<h5 id="同样是-赋值一气呵成-这让我认为海象运算符的作用在于-把计算语句的结果赋值给变量-然后-变量可以在代码块里执行运用">同样是 赋值一气呵成，这让我认为海象运算符的作用在于，<strong>把计算语句的结果赋值给变量，然后，变量可以在代码块里执行运用.</strong></h5>
+
+<h4 id="4">4</h4>
+
+<h5 id="接下来是最后一个例子">接下来是最后一个例子：</h5>
+
+<pre><code>[clean_name.title() for name in names if (clean_name := normalize('NFC', name)) in allowed_names]
+</code></pre>
+
+<h5 id="背景是一个列表推导式里面-需要计算得到符合过滤条件的值-这个可以稍稍简写下-会显得更加通透">背景是一个列表推导式里面，需要计算得到符合过滤条件的值，这个可以稍稍简写下，会显得更加通透：</h5>
+
+<pre><code>[o.title() for i in names if o:=f(i) in allowed_names]
+# 在这里我把: clean_name normalize('NFC', name) 比做了一个方法
+
+更简洁一点：
+[y for x in names if (y := f(x))]
+
+</code></pre>
+
+<h5 id="同样我们最简洁的方式来改写这段代码">同样我们最简洁的方式来改写这段代码：</h5>
+
+<pre><code>[f(x) for x in names if f(x)]
+</code></pre>
+
+<h5 id="可以看到f-x-执行了两次-故此可以看到海象运算符的用法了吧-即简化流程-提高运算速度">可以看到f(x)执行了两次，故此可以看到海象运算符的用法了吧，即简化流程，提高运算速度.</h5>
+
+<h4 id="ps-最近在学习go-go里面就有这个东西-它是用来简化赋值语句的">PS：最近在学习Go，Go里面就有这个东西，它是用来简化赋值语句的.</h4>
+
+<pre><code>在Go里面，你需要用到 var 来进行赋值，如果你不想用var的话，就可以用 ：=来进行赋值。 btw：学Go还真是有点蛋疼.
+</code></pre>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Madpudding </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://madpudding.github.io/2019/python_assignment/>https://madpudding.github.io/2019/python_assignment/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://madpudding.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://madpudding.github.io/2019/docker-1/" class="prev" rel="prev" title="docker删除镜像流程"><i class="iconfont icon-left"></i>&nbsp;docker删除镜像流程</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://madpudding.github.io">Madpudding</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
