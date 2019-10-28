@@ -158,7 +158,7 @@
 
 <h4 id="1">1</h4>
 
-<pre><code>if (n := len(a)) &gt; 10:
+<pre><code class="language-python">if (n := len(a)) &gt; 10:
     print(f&quot;List is too long ({n} elements, expected &lt;= 10)&quot;)
 </code></pre>
 
@@ -166,13 +166,13 @@
 
 <h5 id="假如在没有海象运算符的时候-我们会怎么来写这段代码呢-来试一试">假如在没有海象运算符的时候，我们会怎么来写这段代码呢？来试一试：</h5>
 
-<pre><code>if len(a) &gt; 10:
+<pre><code class="language-python">if len(a) &gt; 10:
     print(f&quot;List is to long({len(a)} elements, expected &lt;= 10)&quot;)
 </code></pre>
 
 <h5 id="或者这样写-避免使用两次len方法-却又多了一次赋值给中间变量的步骤">或者这样写，避免使用两次len方法，却又多了一次赋值给中间变量的步骤.</h5>
 
-<pre><code>n = len(a)
+<pre><code class="language-python">n = len(a)
 if n &gt; 10:
     print(f&quot;List is to long({n} elements, expected &lt;= 10)&quot;)
 </code></pre>
@@ -183,14 +183,14 @@ if n &gt; 10:
 
 <h5 id="接下来-文档又给出了第二个例子-关于海象运算符在正则中的应用">接下来，文档又给出了第二个例子，关于海象运算符在正则中的应用</h5>
 
-<pre><code>discount = 0.0
+<pre><code class="language-python">discount = 0.0
 if (mo := re.search(r'(\d+)% discount', advertisement)):
     discount = float(mo.group(1)) / 100.0
 </code></pre>
 
 <h5 id="背景应该是这样的-代码想从一段advertisement的文本中-拿到打折的百分比-然后通过除法得到百分比数-在这里面-海象运算符干了些什么呢-我们来看哈-虽然正则匹配的语句只用了一次-但它却在两个-地方起了作用-一次是检测匹配是否发生-也就是if控制语句-还有一次是提取分子-同样用python3-8之前的语句来写这个语句">背景应该是这样的，代码想从一段advertisement的文本中，拿到打折的百分比，然后通过除法得到百分比数. 在这里面，海象运算符干了些什么呢？我们来看哈，虽然正则匹配的语句只用了一次，但它却在两个 地方起了作用，一次是检测匹配是否发生，也就是if控制语句，还有一次是提取分子.同样用python3.8之前的语句来写这个语句：</h5>
 
-<pre><code>discount = 0.0
+<pre><code class="language-python">discount = 0.0
 mo = re.search(r'(\d+)% discount', advertisement)
 if mo:
     discount = float(mo.group(1)) / 100.0
@@ -202,14 +202,14 @@ if mo:
 
 <h5 id="接下来-文档又给了两个例子-首先是一个-while循环控制-还是省去了赋值的步骤">接下来，文档又给了两个例子，首先是一个 while循环控制，还是省去了赋值的步骤：</h5>
 
-<pre><code># Loop over fixed length blocks
+<pre><code class="language-python"># Loop over fixed length blocks
 while (block := f.read(256)) != '':
     process(block)
 </code></pre>
 
 <h5 id="背景-代码读取一个文件-当不为空执行操作-同样看没有海象运算符-我们会怎么写">背景：代码读取一个文件，当不为空执行操作,同样看没有海象运算符，我们会怎么写：</h5>
 
-<pre><code>while 1:
+<pre><code class="language-python">while 1:
     block = f.read(256)
     if block != '':
         process(block)
@@ -221,12 +221,12 @@ while (block := f.read(256)) != '':
 
 <h5 id="接下来是最后一个例子">接下来是最后一个例子：</h5>
 
-<pre><code>[clean_name.title() for name in names if (clean_name := normalize('NFC', name)) in allowed_names]
+<pre><code class="language-python">[clean_name.title() for name in names if (clean_name := normalize('NFC', name)) in allowed_names]
 </code></pre>
 
 <h5 id="背景是一个列表推导式里面-需要计算得到符合过滤条件的值-这个可以稍稍简写下-会显得更加通透">背景是一个列表推导式里面，需要计算得到符合过滤条件的值，这个可以稍稍简写下，会显得更加通透：</h5>
 
-<pre><code>[o.title() for i in names if o:=f(i) in allowed_names]
+<pre><code class="language-python">[o.title() for i in names if o:=f(i) in allowed_names]
 # 在这里我把: clean_name normalize('NFC', name) 比做了一个方法
 
 更简洁一点：
@@ -236,7 +236,7 @@ while (block := f.read(256)) != '':
 
 <h5 id="同样我们最简洁的方式来改写这段代码">同样我们最简洁的方式来改写这段代码：</h5>
 
-<pre><code>[f(x) for x in names if f(x)]
+<pre><code class="language-python">[f(x) for x in names if f(x)]
 </code></pre>
 
 <h5 id="可以看到f-x-执行了两次-故此可以看到海象运算符的用法了吧-即简化流程-提高运算速度">可以看到f(x)执行了两次，故此可以看到海象运算符的用法了吧，即简化流程，提高运算速度.</h5>
