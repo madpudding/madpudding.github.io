@@ -57,7 +57,7 @@
     "datePublished": "2019-10-28 15:39:02 \x2b0800 \x2b0800",
     "dateModified" : "2019-10-28 15:39:02 \x2b0800 \x2b0800",
     "url" : "https:\/\/madpudding.github.io\/2019\/url_filter\/",
-    "wordCount" : "516",
+    "wordCount" : "513",
     "keywords" : [  "Madpudding`s Blog"]
 }
 </script>
@@ -165,16 +165,14 @@ class UrlFilterMiddleware:
 
     def process_request(self, request, spider):
         from urllib.parse import urlsplit  # 局部区域引用包
-        black_list = [   # 关键字
+        black_set = {   # 关键字
             'beanie', 'brief', 'choker', 'hat', 'scraf', 'pajamas', 'slippes'
-        ]
+        }
         
         split_result = urlsplit(url=request.url).path  
         # 使用urlsplit切割url,并最后得到path,path一般都包含了关键字.
-        
         split_set = set(re.split(r'[/_.-]', split_result))  
         # 再使用正则表达式,切割字符串,得到一个字符串列表,并set.
-        black_set = set(black_list)
         intersection = split_set &amp; black_set
         # set求和,若结果的set长度大于0,则两个set间存在相同元素.这一步主要是避免迭代寻找共同元素.
         if len(intersection) &gt; 0:
