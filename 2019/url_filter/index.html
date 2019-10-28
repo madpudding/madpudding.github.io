@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Madpudding">
+  
+  
+  
+  <link rel="prev" href="https://madpudding.github.io/2019/python_assignment/" />
+  
+  <link rel="canonical" href="https://madpudding.github.io/2019/url_filter/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           scrapy 忽略请求 | Madpudding`s Blog
+       
+  </title>
+  <meta name="title" content="scrapy 忽略请求 | Madpudding`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/madpudding.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "scrapy 忽略请求",
+    "headline" : "scrapy 忽略请求",
+    "description" : "背景:有时候在scrapy中,我们经常会碰到一些我们并不需要的url请求,一是它会带来脏数据,而是它会占用请求资源,造成不必要浪费. 解决办法",
+    "inLanguage" : "zh-cn",
+    "author" : "Madpudding",
+    "creator" : "Madpudding",
+    "publisher": "Madpudding",
+    "accountablePerson" : "Madpudding",
+    "copyrightHolder" : "Madpudding",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-10-28 15:39:02 \x2b0800 \x2b0800",
+    "dateModified" : "2019-10-28 15:39:02 \x2b0800 \x2b0800",
+    "url" : "https:\/\/madpudding.github.io\/2019\/url_filter\/",
+    "wordCount" : "516",
+    "keywords" : [  "Madpudding`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://madpudding.github.io">Madpudding`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://madpudding.github.io">Madpudding`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">scrapy 忽略请求</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://madpudding.github.io" rel="author">Madpudding</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-10-28 itemprop="datePublished">October 28, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h3 id="背景-有时候在scrapy中-我们经常会碰到一些我们并不需要的url请求-一是它会带来脏数据-而是它会占用请求资源-造成不必要浪费">背景:有时候在scrapy中,我们经常会碰到一些我们并不需要的url请求,一是它会带来脏数据,而是它会占用请求资源,造成不必要浪费.</h3>
+
+<h3 id="解决办法-碰到这种情况-我们可以自己写一个过滤这些请求的中间件-middleware">解决办法:碰到这种情况,我们可以自己写一个过滤这些请求的中间件(middleware).</h3>
+
+<h4 id="比如-我的这个是它会在url里面有些关键字-当url中有这些关键字的时候-中间件就会把请求过滤掉-这是这个middleware的设计思路-下面来看具体怎么去实现它">比如,我的这个是它会在url里面有些关键字,当url中有这些关键字的时候,中间件就会把请求过滤掉.这是这个middleware的设计思路,下面来看具体怎么去实现它:</h4>
+
+<pre><code class="language-python"># 需要用到的包
+import re
+from scrapy.exceptions import IgnoreRequest
+
+# 中间件代码
+class UrlFilterMiddleware:
+    &quot;&quot;&quot;url filter middleware written by fcj&quot;&quot;&quot;
+    @classmethod
+    def from_crawler(cls, crawler):
+        s = cls()
+        crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
+        return s
+
+    def process_request(self, request, spider):
+        from urllib.parse import urlsplit  # 局部区域引用包
+        black_list = [   # 关键字
+            'beanie', 'brief', 'choker', 'hat', 'scraf', 'pajamas', 'slippes'
+        ]
+        
+        split_result = urlsplit(url=request.url).path  
+        # 使用urlsplit切割url,并最后得到path,path一般都包含了关键字.
+        
+        split_set = set(re.split(r'[/_.-]', split_result))  
+        # 再使用正则表达式,切割字符串,得到一个字符串列表,并set.
+        black_set = set(black_list)
+        intersection = split_set &amp; black_set
+        # set求和,若结果的set长度大于0,则两个set间存在相同元素.这一步主要是避免迭代寻找共同元素.
+        if len(intersection) &gt; 0:
+            raise IgnoreRequest('url filter')
+            # 当有共同元素的时候,则证明url里有关键字,抛出忽略请求的异常即可.
+            # 官文对这个异常的描述:This exception can be raised by the Scheduler or 
+            # any downloader middleware to indicate that the request should be ignored.
+        else:
+            return None
+            # 当返回None值时,爬虫会继续对request做处理.
+
+    def spider_opened(self, spider):
+        spider.logger.info('Spider opened: %s' % spider.name)
+</code></pre>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Madpudding </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://madpudding.github.io/2019/url_filter/>https://madpudding.github.io/2019/url_filter/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://madpudding.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://madpudding.github.io/2019/python_assignment/" class="prev" rel="prev" title="Python 海象运算符"><i class="iconfont icon-left"></i>&nbsp;Python 海象运算符</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://madpudding.github.io">Madpudding</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

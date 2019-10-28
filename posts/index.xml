@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Madpudding`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 22 Oct 2019 16:26:02 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 28 Oct 2019 15:39:02 +0800</lastBuildDate>
     
 	<atom:link href="https://madpudding.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>scrapy 忽略请求</title>
+      <link>https://madpudding.github.io/2019/url_filter/</link>
+      <pubDate>Mon, 28 Oct 2019 15:39:02 +0800</pubDate>
+      
+      <guid>https://madpudding.github.io/2019/url_filter/</guid>
+      <description>背景:有时候在scrapy中,我们经常会碰到一些我们并不需要的url请求,一是它会带来脏数据,而是它会占用请求资源,造成不必要浪费. 解决办法</description>
+    </item>
     
     <item>
       <title>Python 海象运算符</title>
